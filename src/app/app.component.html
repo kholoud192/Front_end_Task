@@ -1,0 +1,45 @@
+<div class="container mx-auto px-4 py-6 ">
+  <div class="flex">
+    <div class="mb-4 flex items-center space-x-2">
+      <input type="text" placeholder="Search by name, email, or age" [(ngModel)]="filters.search" (ngModelChange)="applyFilters()"
+        class="p-2 border rounded w-full transition duration-300 ease-in-out focus:ring-2 focus:ring-red-400"/>
+    </div>    
+    <svg  width="1000" class="fixed right-0 lg:visible max-sm:invisible sm:invisible" >
+      <polygon points="20,50 40,50 35,100 15,100" style="fill:rgb(35, 35, 35);stroke:rgb(35, 35, 35);stroke-width:3" />
+      <polygon points="60,50 80,50 75,100 55,100" style="fill:brown;stroke:brown;stroke-width:3" />
+      <polygon points="100,50 120,50 115,100 95,100" style="fill:rgb(35, 35, 35);stroke:rgb(35, 35, 35);stroke-width:3" />
+      <polygon points="250,0 450,0 350,50 150,50" style="fill:rgb(35, 35, 35);stroke:rgb(35, 35, 35);stroke-width:3" />
+      <polyline points="500,50 450,0 250,0"style="fill:none;stroke:brown;stroke-width:4" />
+    </svg>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+    <div *ngFor="let item of paginatedData"
+      class="p-4 border rounded shadow-md hover:scale-105 hover:shadow-lg transition-transform duration-700 ease-in-out text-white shadow-white w-4/5"@slideIn>
+      <h3 class="text-lg font-bold">{{ item.name }}</h3>
+      <p>Email: {{ item.email }}</p>
+      <p>Age: {{ item.age }}</p>
+    </div>
+  </div>
+  <div class="flex justify-center mt-4 space-x-2 text-white" >
+    <button *ngFor="let page of pages" (click)="changePage(page)" [class.bg-gray-500]="page === currentPage" [class.text-white]="page === currentPage"
+      class="px-4 py-2 border rounded shadow-md hover:text-white-700 hover:scale-110 focus:ring-2 focus:ring-gray-400 transition-all duration-300 ease-in-out ">
+      {{ page }}
+    </button>
+  </div>
+  
+  <div class="flex fixed bottom-0 lg:visible max-sm:invisible sm:invisible">
+      <svg >
+        <polygon points="50,0 250,0 280,60 80,60" style="fill:rgb(35, 35, 35);stroke:rgb(35, 35, 35);stroke-width:3" />
+        <polyline points="0,60 50,0 250,0"style="fill:none;stroke:brown;stroke-width:3" />
+      </svg>
+      <svg >
+        <polygon points="100,50 120,50 115,100 95,100" style="fill:brown;stroke:brown;stroke-width:3" />
+        <polygon points="140,50 160,50 155,100 135,100" style="fill:rgb(35, 35, 35);stroke:rgb(35, 35, 35);stroke-width:3" />
+        <polygon points="180,50 200,50 195,100 175,100" style="fill:brown;stroke:brown;stroke-width:3" />
+      </svg>
+      <svg width="600">
+        <polyline points="60,0 480,0 550,60"style="fill:none;stroke:brown;stroke-width:7" />
+      </svg>
+  </div>
+</div>

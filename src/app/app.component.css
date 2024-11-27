@@ -1,0 +1,16 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+button.bg-gray-500 {
+    background-color: brown;
+    color: white;
+    border: 1px brown solid;
+}
+
+button:hover {
+    background-color: brown;
+    border: 1px brown solid;
+}
+  
